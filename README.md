@@ -1,2 +1,1 @@
-# Hush1234.github.io
-My Coding History
+# My Minceraft Skript History Page  

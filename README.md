@@ -1,1 +1,1 @@
-# 이페이지는 저의 마인크래프트 스크립트 제작해온것들을 기록해둔 페이지입니다.
+# Minceraft Skript History Page  

@@ -71,7 +71,7 @@
             <span class="text-primary">Start</span>
           </h2>
           <p class="mb-0">1. 마인크래프트 스크립트를 처음으로 시작.</p>
-          <p class="mb-0">2. 스크립트를 짤때 도움이 될만 한 사이트 탐색</p>
+          <p class="mb-0">2. 스크립트를 제작할때 도움이 될만 한 사이트 탐색</p>
           <p class="mb-0">스크립트 관련 정보사이트 :<a href="http://en.njol.ch/projects/skript/doc/events" target="_blank">http://en.njol.ch/projects/skript/doc/events</a></p>
           <p class="mn-0  ">아이템 정보 사이트 :<a href="https://www.minecraftinfo.com/idlist.htm" target="_blank">https://www.minecraftinfo.com/idlist.htm</a></p>
           <p class="mb-0"></p>
@@ -80,17 +80,18 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="number2">
         <div class="my-auto">
+          <h2 class="mb-5">1주차</h2>
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
-              <h3 class="mb-0">1.Drop 코드</h3>
+              <h3 class="mb-0">1. 아이템 드랍</h3>
               <div class="container">
                 <div class="text-center mt-3">
-                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapseDrop" aria-expanded="false" aria-controls="collapseDrop">코드</button>
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">코드</button>
                 </div>
-                  <div class="collapse" id="collapseDrop">
+                  <div class="collapse" id="collapse1">
 			             <pre>
-				            <code class="Drop">
-                     break of red stained glass:
+				            <code class="1">
+                     on break of red stained glass:
                       cancel event
                       set block to air
                       drop red stained glass
@@ -100,37 +101,480 @@
                 <p>설명: 오브젝트를 파괴했을경우 파괴된 오브젝트가 드랍이 안되는 아이템을 드랍이 가능하게 하는 코드입니다.</p>
             </div>
 
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">2. 서버 메시지 수정</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">코드</button>
+                </div>
+                  <div class="collapse" id="collapse2">
+			             <pre>
+				            <code class="2">
+                      on command "say":
+                        cancel event
+                        broadcast "<최고 관리자> %arguments%"s
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 관리자가 버킷으로 채팅을 쳤을경우 Server: 채팅 으로 뜨던것을 최고관리자: 채팅 으로 바꿔주는 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">3. 다시 접속한 시간</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">코드</button>
+                </div>
+                  <div class="collapse" id="collapse3">
+			             <pre>
+				            <code class="3">
+                      on join:
+                        message "%{time.%player%.in}%시간 이후에 처음접속입니다."
+                        set {time.%player%.in} to time
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 플레이어가 나간시간을 기록한후 플레이어가 재접속했을때 재접속까지 경과한 시간을 알려주는 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">4. 명령어 제한</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">코드</button>
+                </div>
+                  <div class="collapse" id="collapse4">
+			             <pre>
+				            <code class="4">
+                      on command "op":
+                        player command "/kick %player% 어디서 감히!"
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 플레이어가 /op 라는 명령어를 입력할 경우 킥을 당하면서 어디서 감히 라는 문구를 띠우는 코드입니다.</p>
+                <p>부가설명: 마인크래프트에서 OP란 서버를 종료시킬수까지 있는 권한이 있습니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">5.매초마다 회복</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">코드</button>
+                </div>
+                  <div class="collapse" id="collapse5">
+			             <pre>
+				            <code class="5">
+                      every second:
+                        heal all players
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 매초마다 플레이어들에 채력을 회복시켜주는 코드입니다.</p>
+            </div>
+
         </div>
 
       </section>
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="number3">
         <div class="my-auto">
-          <h2 class="mb-5">Education</h2>
-
+          <h2 class="mb-5">2주차</h2>
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
-              <h3 class="mb-0">University of Colorado Boulder</h3>
-              <div class="subheading mb-3">Bachelor of Science</div>
-              <div>Computer Science - Web Development Track</div>
-              <p>GPA: 3.23</p>
+              <h3 class="mb-0">1. 취침시작 시간</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">코드</button>
+                </div>
+                  <div class="collapse" id="collapse6">
+			             <pre>
+				            <code class="6">
+                      on bed enter:
+                        set {sleeptime.%player%} to time
+                        message "%{sleeptime.%player%}% 분부터 취침을 시작합니다."
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 플레이어가 침대에 누울경우 취침에 시작한 시간을 알려주는 코드입니다.</p>
             </div>
-            <div class="resume-date text-md-right">
-              <span class="text-primary">August 2006 - May 2010</span>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">2. 기상 시간</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">코드</button>
+                </div>
+                  <div class="collapse" id="collapse7">
+			             <pre>
+				            <code class="7">
+                      on bed Leave:
+                        set {wakeuptime.%player%} to time
+                        message "%{wakeuptime.%player%}% 분에 기상하였습니다."
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 플레이어가 침대에서 기상할경우 기상시간을 알려주는 코드입니다.</p>
             </div>
-          </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">3.게임모드로 변경</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">코드</button>
+                </div>
+                  <div class="collapse" id="collapse8">
+			             <pre>
+				            <code class="8">
+                      on rightclick with blaze_rod:
+                        set the player's gamemode to creative
+                        message "게임모드 로 변경되었습니다."
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 블레이즈 막대기를 들고 우클릭시 게임모드로 변경되는 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">4. 서바이벌모드로 변경</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">코드</button>
+                </div>
+                  <div class="collapse" id="collapse9">
+			             <pre>
+				            <code class="9">
+                      on leftclick with blaze_rod:
+                        set the player's gamemode to survival
+                        message "서버이벌 모드로 변경되었습니다."
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 블레이즈 막대기를 들고 좌클릭시 서바이벌모드로 변경되는 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">5. 아이템 지급</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">코드</button>
+                </div>
+                  <div class="collapse" id="collapse10">
+			             <pre>
+				            <code class="10">
+                      on rightclick with stick:
+                        give 1 block of diamond to player
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 막대기를 들고 우클릭할경우 다이아 블럭을 지급하는 코드입니다.</p>
+            </div>
 
         </div>
+
       </section>
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="number4">
         <div class="my-auto">
-          <h2 class="mb-5">Skills</h2>
+          <h2 class="mb-5">3주차(지갑 프로젝트)</h2>
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">1. 지갑 생성</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">코드</button>
+                </div>
+                  <div class="collapse" id="collapse11">
+			             <pre>
+				            <code class="11">
+                      command /지갑만들기:
+                        trigger:
+                          if {wallet.%player%} is set:
+                          message "지갑은 하나만 만들수있습니다."
+                          stop trigger
+                          else:
+                            set {wallet.%player%} to 0
+                            message "지갑이 성공적으로 생성되었습니다."
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 돈을 보관하기위한 지갑을 생성하는 코드입니다.</p>
+            </div>
 
-          <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">2. 지갑 확인</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">코드</button>
+                </div>
+                  <div class="collapse" id="collapse12">
+			             <pre>
+				            <code class="12">
+                      command /지갑확인:
+                        trigger:
+                        message "%{wallet.%player%}%원 있습니다."
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 지갑에 있는 금액을 확인하는 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">3.돈지급</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse13" aria-expanded="false" aria-controls="collapse13">코드</button>
+                </div>
+                  <div class="collapse" id="collapse13">
+			             <pre>
+				            <code class="13">
+                      command /돈지급 [<number>]:
+                        trigger:
+                          message "%argument 1% 원이 지급되었습니다."
+                          add argument 1 to {wallet.%player%}
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 돈을 지급하는 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">4. 지갑 삭제</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse14" aria-expanded="false" aria-controls="collapse14">코드</button>
+                </div>
+                  <div class="collapse" id="collapse14">
+			             <pre>
+				            <code class="14">
+                      command /지갑 삭제:
+                        trigger:
+                        if {wallet.%player%} is 1:
+                          remove 1 from {wallet.%player%}
+                          message "지갑이 성공적으로 삭제되었습니다."
+                        else:
+                          message "지갑이 존재하지않습니다."
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 지갑을 삭제하는 코드입니다.</p>
+            </div>
 
         </div>
+
       </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="number5">
+        <div class="my-auto">
+          <h2 class="mb-5">4주차</h2>
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">1. 랜덤 숫자 지정</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse15" aria-expanded="false" aria-controls="collapse15">코드</button>
+                </div>
+                  <div class="collapse" id="collapse15">
+			             <pre>
+				            <code class="15">
+                      command /랜덤:
+                        trigger:
+                        set {number} to a random integer between 1 to 10
+                        message "%{number}%"
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 명령어를 입력할 경우 랜덤숫자가 정해지는 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">2. 도박 시스템</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse16" aria-expanded="false" aria-controls="collapse16">코드</button>
+                </div>
+                  <div class="collapse" id="collapse16">
+			             <pre>
+				            <code class="16">
+                      command /도박하기 [<number>]:
+                        trigger:
+                          set {number} to a random integer between 1 to 10
+                          if {wallet.%player%} >= argument 1:
+                          message "%{wallet.%player%}% 에서 %argument 1%만큼 차감되었습니다."
+                          remove argument 1 from {wallet.%player%}
+                            if {number} >= 5:
+                              message "도박에 성공하셧습니다."
+                              message "랜덤값은 %{number}% 였습니다."
+                              add argument 1*{number} to {wallet.%player%}
+                            else:
+                              message "도박에 실패하셧습니다."
+                              message "랜덤값은 %{number}% 였습니다."
+                              stop trigger
+                          else:
+                          message "지갑에 돈이부족합니다."
+                          stop trigger
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 위에 랜덤 숫자 지정 코드를 응용하여 만든 지갑 프로젝트에 추가된 도박 시스템 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">3.사용 가능 명령어 확인</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse17" aria-expanded="false" aria-controls="collapse17">코드</button>
+                </div>
+                  <div class="collapse" id="collapse17">
+			             <pre>
+				            <code class="17">
+                      command /명령어확인:
+                        trigger:
+                        message "지갑만들기"
+                        message "지갑삭제"
+                        message "지갑확인"
+                        message "도박"
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 지갑 프로젝트에서 사용가능한 명령어를 알려주는 코드입니다.</p>
+            </div>
+
+      </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="number6">
+        <div class="my-auto">
+          <h2 class="mb-5">5주차</h2>
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">1. 신용등급 생성</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse18" aria-expanded="false" aria-controls="collapse18">코드</button>
+                </div>
+                  <div class="collapse" id="collapse18">
+			             <pre>
+				            <code class="18">
+                      command /신용등급만들기:
+                        trigger:
+                        if {class.%player%} is not set:
+                          set {class.%player%} to 1
+                          message "신용등급이 생성되었습니다."
+                        else:
+                          message "이미 신용등급이 존재합니다."
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 신용등급을 생성하는 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">2. 신용등급 확인</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse19" aria-expanded="false" aria-controls="collapse19">코드</button>
+                </div>
+                  <div class="collapse" id="collapse19">
+			             <pre>
+				            <code class="19">
+                      command /신용등급확인:
+                        trigger:
+                          if {class.%player%} >= 1:
+                          message "당신의 신용등급은 %{class.%player%}%등급 입니다."
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 자신의 신용등급을 확인하는 코드입니다.</p>
+            </div>
+
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">3.지갑 관련 명령어 코드 단순화</h3>
+              <div class="container">
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse20" aria-expanded="false" aria-controls="collapse20">코드</button>
+                </div>
+                  <div class="collapse" id="collapse20">
+			             <pre>
+				            <code class="20">
+                      command /신용등급 [<text>]:
+                        trigger:
+                          if arg 1 is "만들기":
+                            if {class.%player%} is not set:
+                              set {class.%player%} to 1
+                              message "신용등급이 생성되었습니다."
+                            else:
+                              message "이미 신용등급이 존재합니다."
+                              stop
+                          else if arg 1 is "확인":
+                            if {class.%player%} >= 1:
+                              message "당신의 신용등급은 %{class.%player%}%등급 입니다."
+
+                      command /지갑 [<text>]:
+                        trigger:
+                          if arg 1 is "만들기":
+                            if {wallet.%player%} is not set:
+                              set {wallet.%player%} to 0
+                                if {wallet.%player%} is 0:
+                                  set {wallet.%player%} to 1
+                                    set {walletmoney.%player%} to 0
+                                      message "지갑이 생성되었습니다."
+                          else:
+                            message "지갑은 하나만 만들수있습니다."
+                            stop
+                          else if arg 1 is "삭제":
+                            if {wallet.%player%} is 1:
+                              remove 1 from {wallet.%player%}
+                              message "지갑이 성공적으로 삭제되었습니다."
+                            else:
+                              message "지갑이 존재하지않습니다."
+                              stop
+                          else if arg 1 is "확인":
+                            if {wallet.%player%} is 1:
+                            message "%{walletmoney.%player%}% 원 있습니다."
+                          else:
+                            message "지갑을 먼저만들어주세요."
+                            stop
+
+                      command /돈지급 [<text>] [<int>]:
+                        trigger:
+                          set {_player} to argument 1 parsed as Player
+                          if {_player} is not set:
+                            message "플레이어가 접속 중이 아닙니다."
+                            stop
+                          if {wallet.%{_player}%} is 1:
+                            message "%argument 2% 원을 %{_player}% 님에게 지급되었습니다."
+                            add argument 2 to {walletmoney.%{_player}%}
+                          else:
+                            message "해당인원에 지갑이 존재하지않습니다."
+
+                      command /도박 [<int>]:
+                        trigger:
+                          set {number} to a random integer between 1 to 20
+                            if {walletmoney.%player%} >= argument 1:
+                              message "%{walletmoney.%player%}%원에서 %argument 1% 원 이 차감되었습니다."
+                                remove argument 1 from {walletmoney.%player%}
+                                  message "도박을 진행중입니다."
+                                    wait 2 second
+                                    if {number} >= 18:
+                                      message "도박에 성공했습니다."
+                                      message "랜덤값은 %{number}% 였습니다."
+                                      add argument 1*{number} to {walletmoney.%player%}
+                                      stop
+                                    else:
+                                      message "도박에 실패했습니다."
+                                      message "랜덤값은 %{number}% 였습니다."
+                                      give a Iron Ingot to the player
+                                      stop
+                                    else:
+                                      message "지갑에 돈이 부족합니다."
+                                      stop
+			             </code>
+		              </pre>
+	              </div>
+                <p>설명: 따로 따로 제작되어 있던 코드들을 단순화 시킨 작업입니다.</p>
+            </div>
+
+      </section>
+
     </div>
 
 

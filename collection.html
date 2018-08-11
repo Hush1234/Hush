@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,66 +8,152 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Coding History Page</title>
+    <title>2018 기록페이지</title>
 
-    <!-- Bootstrap Core CSS -->
+    <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
     <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-	<link href="vendor/highlight/styles/atom-one-dark.css" rel="stylesheet">
+  <link href="vendor/highlight/styles/atom-one-dark.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/resume.min.css" rel="stylesheet">
 
   </head>
 
-  <body>
+  <body id="page-top">
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-		<a class="navbar-brand" href="index.html"><strong>Coding</strong></a>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="2018Coding.html">2018년 기록페이지</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="2019Coding.html">2019년 기록페이지</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="students.html">코드 모음 페이지</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">프로젝트 코드 모음 페이지</span>
+        <span class="d-none d-lg-block">
+          <a href="index.html">
+            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/Minecraft.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#number1">지갑 프로젝트</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-	<div class="spacer"></div>
+    <div class="container-fluid p-0">
 
-  <dir>
-  
-  <h2>2019 스크립트 활동</h2>
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="number1">
+        <div  class="my-auto">
+          <h3 class="mb-0">지갑
+            <span class="text-primary">프로젝트</span>
+          </h3>
+          <div class="text-center mt-3">
+            <button class="btn btn-primary text-center" type="button" data-toggle="collapse" data-target="#collapse20" aria-expanded="false" aria-controls="collapse20">코드</button>
+          </div>
+            <div class="collapse" id="collapse20">
+             <pre>
+              <code class="20">
+                command /명령어확인:
+                  trigger:
+                    message "지갑 만들기"
+                    message "지갑 삭제"
+                    message "지갑 확인"
+                    message "신용등급 만들기"
+                    message "신용등급 확인"
+                    message "도박"
 
-  </dir>
+                command /신용등급 [<text>]:
+                  trigger:
+                    if arg 1 is "만들기":
+                      if {class.%player%} is not set:
+                        set {class.%player%} to 1
+                        message "신용등급이 생성되었습니다."
+                      else:
+                        message "이미 신용등급이 존재합니다."
+                        stop
+                    else if arg 1 is "확인":
+                      if {class.%player%} >= 1:
+                        message "당신의 신용등급은 %{class.%player%}%등급 입니다."
 
+                command /지갑 [<text>]:
+                  trigger:
+                    if arg 1 is "만들기":
+                      if {wallet.%player%} is not set:
+                        set {wallet.%player%} to 0
+                          if {wallet.%player%} is 0:
+                            set {wallet.%player%} to 1
+                              set {walletmoney.%player%} to 0
+                                message "지갑이 생성되었습니다."
+                    else:
+                      message "지갑은 하나만 만들수있습니다."
+                      stop
+                    else if arg 1 is "삭제":
+                      if {wallet.%player%} is 1:
+                        remove 1 from {wallet.%player%}
+                        message "지갑이 성공적으로 삭제되었습니다."
+                      else:
+                        message "지갑이 존재하지않습니다."
+                        stop
+                    else if arg 1 is "확인":
+                      if {wallet.%player%} is 1:
+                      message "%{walletmoney.%player%}% 원 있습니다."
+                    else:
+                      message "지갑을 먼저만들어주세요."
+                      stop
 
+                command /돈지급 [<text>] [<int>]:
+                  trigger:
+                    set {_player} to argument 1 parsed as Player
+                    if {_player} is not set:
+                      message "플레이어가 접속 중이 아닙니다."
+                      stop
+                    if {wallet.%{_player}%} is 1:
+                      message "%argument 2% 원을 %{_player}% 님에게 지급되었습니다."
+                      add argument 2 to {walletmoney.%{_player}%}
+                    else:
+                      message "해당인원에 지갑이 존재하지않습니다."
 
-	<div class="container text-center mt-5">
-    <hr>
-    <pre>
+                command /도박 [<int>]:
+                  trigger:
+                    set {number} to a random integer between 1 to 20
+                      if {walletmoney.%player%} >= argument 1:
+                        message "%{walletmoney.%player%}%원에서 %argument 1% 원 이 차감되었습니다."
+                          remove argument 1 from {walletmoney.%player%}
+                            message "도박을 진행중입니다."
+                              wait 2 second
+                              if {number} >= 18:
+                                message "도박에 성공했습니다."
+                                message "랜덤값은 %{number}% 였습니다."
+                                add argument 1*{number} to {walletmoney.%player%}
+                                stop
+                              else:
+                                message "도박에 실패했습니다."
+                                message "랜덤값은 %{number}% 였습니다."
+                                give a Iron Ingot to the player
+                                stop
+                              else:
+                                message "지갑에 돈이 부족합니다."
+                                stop
+             </code>
+            </pre>
+          </div>
+          <p>사용법: /명령어확인 을통해 명령어를 종류 확인가능</p>
+          <p>도박시스템 설명: 도박시스템은 도박을 시작할경우 1~20 숫자 사이에 값이 랜덤으로 지정되며 지정값이 18이상일경우 도박성공 18이하일경우 도박에 실패합니다.</p>
+          <p>도박 보상: 도박에 성공했을시 보상 금액은 도박에 건금액 * 랜덤값 입니다.</p>
+      </div>
+        </div>
+      </section>
 
+    </div>
 
-    </pre>
-		<p>Github: <a href="https://github.com/Hush1234/Hush1234.github.io" target="_blank">Hush</a></p>
-	</div>
-
-	<footer class="footer text-center">
-		<div class="container">
-			<p class="text-muted small">Copyright &copy; Hush 2018~</p>
-		</div>
-	</footer>
 
 
     <!-- Bootstrap core JavaScript -->
@@ -79,31 +164,10 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/stylish-portfolio.min.js"></script>
+    <script src="js/resume.min.js"></script>
 
-	<script>
-	$(document).ready(function() {
-		$('#collapseC').on('show.bs.collapse', function() {
-			$('.collapse').collapse('hide');
-		});
-		$('#collapseJava').on('show.bs.collapse', function() {
-			$('.collapse').collapse('hide');
-		});
-		$('#collapsePython').on('show.bs.collapse', function() {
-			$('.collapse').collapse('hide');
-		});
-		$('#collapseHTML').on('show.bs.collapse', function() {
-			$('.collapse').collapse('hide');
-		});
-    $('#carouselIndicators').carousel({
-      interval: 1000
-    });
-	});
-	</script>
-
-	<!-- Highlight script -->
-	<script src="vendor/highlight/highlight.pack.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+    <script src="vendor/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
   </body>
 
